@@ -1,8 +1,49 @@
-<h1>Home Page</h1>
-{% if user.is_authenticated %}
-    <p>Hello, {{ user.username }}!</p>
-    <a href="{% url 'logout' %}">Logout</a>
-{% else %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'register' %}">Register</a>
-{% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
+            color: #008CBA;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #005580;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Home Page</h1>
+        <p>Welcome to our blog app. Here you can create, read, update, and delete blog posts.</p>
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }}!</p>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</body>
+</html>

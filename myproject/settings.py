@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp'
 ]
-
+AUTHENTICATION_BACKENDS = ['Authentication.backend.FileBackend']
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'blog.urls'
+ROOT_URLCONF = 'myapp.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'blog.wsgi.application'
+WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
 # Database
@@ -119,3 +119,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_URL = 'login'
